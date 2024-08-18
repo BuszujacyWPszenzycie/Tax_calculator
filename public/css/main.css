@@ -190,4 +190,7 @@ body {
   to {
     transform: rotate(1turn);
   }
+}
+.input-error {
+  border: 1px solid #ff7375;
 }/*# sourceMappingURL=main.css.map */

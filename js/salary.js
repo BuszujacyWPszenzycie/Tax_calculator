@@ -24,7 +24,7 @@ const addAllSalaryItemsFunction = () => {
 	return fullSalary
 }
 
-const showSpinnerFunction = params => {
+const showSpinnerFunction = () => {
 	spinner.style.opacity = 1
 
 	setTimeout(() => {
@@ -33,26 +33,54 @@ const showSpinnerFunction = params => {
 	}, 2000) // 2000 milliseconds = 2 seconds
 }
 
+const checkAllInputsFunction = () => {
+	const allInputs = document.querySelectorAll('.salary__input')
+
+	allInputs.forEach(input => {
+		input.classList.remove('input-error')
+		if (input.value.trim() === '') {
+			input.classList.add('input-error')
+		}
+	})
+}
+
 const calculateNetSalaryFunction = () => {
-	let fullSalary = Number(addAllSalaryItemsFunction())
-	let penstionContributionValue = Number(parseFloat(fullSalary * PENSION_CONTRIBUTION_RATE).toFixed(2))
-	let disabilityContributionValue = Number(parseFloat(fullSalary * DISABILITY_CONTRIBUTION_RATE_EMPLOYEE).toFixed(2))
-	let sicknessContributionValue = Number(parseFloat(fullSalary * SICKNESS_CONTRIBUTION_RATE).toFixed(2))
-	let taxableIncome = fullSalary - (penstionContributionValue + disabilityContributionValue + sicknessContributionValue)
-	let healthContributionValue = Number(parseFloat(taxableIncome * HEALTH_CONTRIBUTION_RATE).toFixed(2))
-	let taxValue =
-		Number(parseFloat(taxableIncome - COSTS_OF_GENERATING_INCOME).toFixed(0) * TAX_RATE).toFixed(0) - TAX_FREE_AMOUNT
+	// Problem pojawia sie przy zmianie jednego ze składników wynagrodzenia i ponownego policzenia. Wtedy opacity nie znika wystarczająco szybko i na chwilę pojawia się wynik
+	salaryResult.style.opacity = 0
+	checkAllInputsFunction()
 
-	let netSalary =
-		fullSalary -
-		penstionContributionValue -
-		disabilityContributionValue -
-		sicknessContributionValue -
-		healthContributionValue -
-		taxValue
+	const allInputsWithError = document.querySelectorAll('.input-error')
+	if (allInputsWithError.length == 0) {
+		let fullSalary = Number(addAllSalaryItemsFunction())
+		let penstionContributionValue = Number(parseFloat(fullSalary * PENSION_CONTRIBUTION_RATE).toFixed(2))
+		let disabilityContributionValue = Number(parseFloat(fullSalary * DISABILITY_CONTRIBUTION_RATE_EMPLOYEE).toFixed(2))
+		let sicknessContributionValue = Number(parseFloat(fullSalary * SICKNESS_CONTRIBUTION_RATE).toFixed(2))
+		let taxableIncome =
+			fullSalary - (penstionContributionValue + disabilityContributionValue + sicknessContributionValue)
+		let healthContributionValue = Number(parseFloat(taxableIncome * HEALTH_CONTRIBUTION_RATE).toFixed(2))
+		let taxValue =
+			Number(parseFloat(taxableIncome - COSTS_OF_GENERATING_INCOME).toFixed(0) * TAX_RATE).toFixed(0) - TAX_FREE_AMOUNT
 
-	salarySpan.textContent = netSalary
-	showSpinnerFunction()
+		let netSalary =
+			fullSalary -
+			penstionContributionValue -
+			disabilityContributionValue -
+			sicknessContributionValue -
+			healthContributionValue -
+			taxValue
+
+		salarySpan.textContent = parseFloat(netSalary).toFixed(2)
+		showSpinnerFunction()
+	}
+}
+
+const clearAllInputs = () => {
+	const allInputs = document.querySelectorAll('.salary__input')
+	allInputs.forEach(input => {
+		input.classList.remove('input-error')
+		input.value = ''
+	})
 }
 
 allButtons[0].addEventListener('click', calculateNetSalaryFunction)
+allButtons[1].addEventListener('click', clearAllInputs)
