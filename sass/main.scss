@@ -17,6 +17,24 @@ body {
 	font-size: 1rem;
 	font-family: 'Jura', sans-serif;
 	color: $navy;
+	display: flex;
+}
+
+.section {
+	width: 50vw;
+	height: 100vh;
+
+	&__left {
+		border-right: 1px solid $navy;
+	}
+
+	&__right {
+		position: relative;
+		background-color: $navy;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .salary {
@@ -85,6 +103,28 @@ body {
 			color: $red;
 		}
 	}
+
+	&__resultWrapper {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 150px;
+		transition: opacity 0.4s;
+		opacity: 0;
+	}
+
+	&__result {
+		color: $white;
+		text-transform: uppercase;
+		font-size: 4rem;
+	}
+
+	&__span {
+		color: $white;
+		font-size: 6rem;
+	}
 }
 
 .checkbox {
@@ -93,6 +133,8 @@ body {
 		margin: 4rem;
 		display: flex;
 		flex-direction: column;
+		border-bottom: 1px solid $navy;
+		padding-bottom: 2rem;
 	}
 
 	&__item {
@@ -104,6 +146,7 @@ body {
 	&__input {
 		margin-right: 3rem;
 		transform: scale(1.5);
+		cursor: pointer;
 		&::before {
 			content: '';
 			position: absolute;
@@ -112,18 +155,66 @@ body {
 			display: block;
 			// transition: background-color 0.3s ease;
 		}
+
 		&:checked::before {
-			background-color: #c7fcca;
+			background-color: $green;
 			color: $navy;
 		}
 		&:checked {
-			background-color: #c7fcca;
-			border-color: #c7fcca;
+			background-color: $green;
+			border-color: $green;
 		}
 	}
 
 	&__label {
 		text-transform: uppercase;
 		font-size: 1.5rem;
+	}
+}
+
+.buttons {
+	&__wrapper {
+		width: 800px;
+		margin: 4rem;
+		display: flex;
+	}
+	&__button {
+		width: 200px;
+		height: 40px;
+		border: none;
+		background-color: $navy;
+		color: $white;
+		font-family: inherit;
+		margin-right: 2rem;
+		text-transform: uppercase;
+		cursor: pointer;
+		opacity: 0.9;
+		transform: opacity 0.4s, transform 0.4s;
+		&:hover {
+			opacity: 1;
+		}
+		&:active {
+			transform: scale(1.05);
+		}
+	}
+}
+
+// LOADING
+
+.spinner {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	border: 9px solid;
+	border-color: #dbdcef;
+	border-right-color: #474bff;
+	animation: spinner-d3wgkg 1s infinite linear;
+	transition: opacity 0.5s ease;
+	opacity: 0;
+}
+
+@keyframes spinner-d3wgkg {
+	to {
+		transform: rotate(1turn);
 	}
 }

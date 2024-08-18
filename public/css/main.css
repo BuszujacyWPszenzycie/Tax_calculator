@@ -15,6 +15,22 @@ body {
   font-size: 1rem;
   font-family: "Jura", sans-serif;
   color: #221c46;
+  display: flex;
+}
+
+.section {
+  width: 50vw;
+  height: 100vh;
+}
+.section__left {
+  border-right: 1px solid #221c46;
+}
+.section__right {
+  position: relative;
+  background-color: #221c46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .salary__wrapper {
@@ -75,12 +91,33 @@ body {
 .salary__icon--delete {
   color: #ff7375;
 }
+.salary__resultWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  transition: opacity 0.4s;
+  opacity: 0;
+}
+.salary__result {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+.salary__span {
+  color: #ffffff;
+  font-size: 6rem;
+}
 
 .checkbox__wrapper {
   width: 800px;
   margin: 4rem;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #221c46;
+  padding-bottom: 2rem;
 }
 .checkbox__item {
   margin-top: 2rem;
@@ -90,6 +127,7 @@ body {
 .checkbox__input {
   margin-right: 3rem;
   transform: scale(1.5);
+  cursor: pointer;
 }
 .checkbox__input::before {
   content: "";
@@ -99,14 +137,57 @@ body {
   display: block;
 }
 .checkbox__input:checked::before {
-  background-color: #c7fcca;
+  background-color: #00eb5e;
   color: #221c46;
 }
 .checkbox__input:checked {
-  background-color: #c7fcca;
-  border-color: #c7fcca;
+  background-color: #00eb5e;
+  border-color: #00eb5e;
 }
 .checkbox__label {
   text-transform: uppercase;
   font-size: 1.5rem;
+}
+
+.buttons__wrapper {
+  width: 800px;
+  margin: 4rem;
+  display: flex;
+}
+.buttons__button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: #221c46;
+  color: #ffffff;
+  font-family: inherit;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.9;
+  transform: opacity 0.4s, transform 0.4s;
+}
+.buttons__button:hover {
+  opacity: 1;
+}
+.buttons__button:active {
+  transform: scale(1.05);
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid;
+  border-color: #dbdcef;
+  border-right-color: #474bff;
+  animation: spinner-d3wgkg 1s infinite linear;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+@keyframes spinner-d3wgkg {
+  to {
+    transform: rotate(1turn);
+  }
 }/*# sourceMappingURL=main.css.map */

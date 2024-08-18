@@ -15,36 +15,65 @@
 
 <body>
 
-  <div class="salary__wrapper">
+  <section class="section section__left">
 
-    <div class="salary__titleWrapper">
-      <h2 class="salary__title">Podstawa</h2>
-      <i class="ph ph-plus salary__icon"></i>
+    <div class="salary__wrapper">
+
+      <div class="salary__titleWrapper">
+        <h2 class="salary__title">Podstawa</h2>
+        <i class="ph ph-plus salary__icon"></i>
+      </div>
+
+      <div class="salary__allItems">
+
+        <div class="salary__itemWrapper">
+          <div class="salary__inputWrapper">
+            <input type="text" class="salary__input">
+            <input type="number" class="salary__input salary__input--amount" step=".01" min="0" value="10000">
+          </div>
+          <i class="ph ph-trash-simple salary__icon salary__icon--delete"></i>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="salary__allItems">
+    <div class="checkbox__wrapper">
 
+      <h2 class="salary__title salary__title--second">Zmienne płacowe</h2>
+      <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
+          class="checkbox__label">praca w miejscu
+          zamieszkania</label>
+      </div>
+      <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
+          class="checkbox__label">ukończony 26 rok
+          życia</label></div>
+      <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
+          class="checkbox__label">składka na FGŚP</label>
+      </div>
     </div>
 
-  </div>
-
-  <div class="checkbox__wrapper">
-
-    <h2 class="salary__title salary__title--second">Zmienne płacowe</h2>
-    <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
-        class="checkbox__label">praca w miejscu
-        zamieszkania</label>
+    <div class="buttons__wrapper">
+      <button class="buttons__button btn">wylicz</button>
+      <button class="buttons__button btn">wyczyść</button>
     </div>
-    <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
-        class="checkbox__label">ukończony 26 rok
-        życia</label></div>
-    <div class="checkbox__item"><input type="checkbox" class="checkbox__input"><label for=""
-        class="checkbox__label">składka na FGŚP</label>
+
+  </section>
+
+  <section class="section section__right">
+
+    <div class="spinner"></div>
+
+    <div class="salary__resultWrapper">
+      <h1 class="salary__result">Twoje wynagrodzenie netto to</h1><span class="salary__span">45464<span>
     </div>
-  </div>
 
 
-  <script src="./js/script.js"></script>
+  </section>
+
+
+  <script src="./js/adding.js"></script>
+  <script src="./js/salary.js"></script>
 </body>
 
 </html>

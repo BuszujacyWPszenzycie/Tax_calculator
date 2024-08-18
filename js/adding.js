@@ -17,7 +17,7 @@ const addSalaryItemFunction = () => {
 	// Create the number input
 	const numberInput = document.createElement('input')
 	numberInput.type = 'number'
-	numberInput.className = 'salary__input'
+	numberInput.className = 'salary__input salary__input--amount'
 	numberInput.step = '0.01'
 	numberInput.min = '0'
 
