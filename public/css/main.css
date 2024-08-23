@@ -93,22 +93,23 @@ body {
 }
 .salary__resultWrapper {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   height: 150px;
   transition: opacity 0.4s;
   opacity: 0;
 }
 .salary__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .salary__span {
   color: #ffffff;
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 .checkbox__wrapper {

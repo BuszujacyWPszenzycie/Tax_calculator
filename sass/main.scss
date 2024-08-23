@@ -106,24 +106,26 @@ body {
 
 	&__resultWrapper {
 		position: absolute;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
+
 		height: 150px;
 		transition: opacity 0.4s;
 		opacity: 0;
 	}
 
 	&__result {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
 		color: $white;
 		text-transform: uppercase;
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	&__span {
 		color: $white;
-		font-size: 6rem;
+		font-size: 4rem;
 	}
 }
 
